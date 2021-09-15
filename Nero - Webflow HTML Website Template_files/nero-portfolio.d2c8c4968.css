@@ -5203,9 +5203,9 @@ blockquote {
         width: 100%;
         padding: 30px;
     }
-    .project-wrap {
+/*     .project-wrap {
         height: 420px;
-    }
+    } */
     .blog-grid {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
