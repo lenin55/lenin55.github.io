@@ -1,0 +1,69 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        padding: 1.5rem 3rem;
+        background: transparent;
+    }
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.navLinks {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navLinks {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+}
+
+.link {
+    transition: opacity 0.2s;
+}
+
+.link:hover {
+    opacity: 0.8;
+}
+
+.hireButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background-color: white;
+    color: #ff5e62;
+    /* Orange matches gradient */
+    border-radius: 9999px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.hireButton:hover {
+    background-color: #fff1f2;
+    transform: scale(1.05);
+}

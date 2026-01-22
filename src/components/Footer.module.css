@@ -1,0 +1,65 @@
+.footer {
+    padding: 6rem 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.subtext {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+}
+
+.contactInfo {
+    margin-bottom: 3rem;
+}
+
+.email {
+    display: block;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    transition: opacity 0.3s;
+}
+
+.email:hover {
+    opacity: 0.8;
+}
+
+.location {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.socials {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.socialLink {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.socialLink:hover {
+    color: #fbbf24;
+}
+
+.copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
