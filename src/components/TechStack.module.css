@@ -1,72 +1,114 @@
 .section {
-    padding: 6rem 1.5rem;
+    position: relative;
+    padding: 8rem 2rem 12rem;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .heading {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 4rem;
-    text-align: center;
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: 1rem;
     color: white;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+.subheading {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto 5rem;
 }
 
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.category {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+.galaxyWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
     padding: 2rem;
-    transition: transform 0.3s ease;
+    position: relative;
 }
 
-.category:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.categoryTitle {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
+/* Each skill orbit group - displays skills inline */
+.orbitGroup {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
 }
 
-.list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.listItem {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+/* Base Tag Style */
+.skillTag {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
     font-size: 1rem;
-    opacity: 0.9;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-outfit), sans-serif;
+    letter-spacing: 0.5px;
 }
 
-.icon {
-    color: #fbbf24;
-    /* Amber/Orange tint */
+.skillTag:hover {
+    transform: scale(1.1) !important;
+    background: white;
+    color: black;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    z-index: 10;
+}
+
+/* Category Specific Glows (Subtle hints) */
+.languages {
+    border-color: rgba(255, 99, 71, 0.3);
+}
+
+/* Red-ish */
+.frameworks {
+    border-color: rgba(97, 218, 251, 0.3);
+}
+
+/* React Blue-ish */
+.styling {
+    border-color: rgba(219, 112, 147, 0.3);
+}
+
+/* Pink-ish */
+.design {
+    border-color: rgba(162, 89, 255, 0.3);
+}
+
+/* Purple-ish */
+.mobile {
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+/* Green-ish */
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .galaxyWrapper {
+        gap: 0.8rem;
+    }
+
+    .skillTag {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
 }

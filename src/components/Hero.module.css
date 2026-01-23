@@ -1,18 +1,19 @@
 .heroSection {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 0;
+    will-change: transform;
 }
 
 .titleContainer {
     position: absolute;
-    top: 35%;
-    /* Visual center for portrait overlap */
+    top: 25%;
+    /* Moved up from 35% */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -24,6 +25,7 @@
     align-items: center;
     justify-content: center;
     gap: 0;
+    will-change: transform;
 }
 
 .hugeTitleLine {
@@ -37,6 +39,8 @@
     /* Significantly increased */
     line-height: 0.8;
     font-weight: 900;
+    font-family: var(--font-outfit), sans-serif;
+    /* Reverted to Outfit for title alone */
     color: rgba(255, 255, 255, 0.95);
     text-transform: uppercase;
     letter-spacing: -0.03em;
@@ -68,73 +72,108 @@
     -webkit-text-stroke: 0 !important;
 }
 
+/* Special class to show only the last 1/4 (right side) of the letter */
+.halfClipRight {
+    clip-path: polygon(75% 0, 100% 0, 100% 100%, 75% 100%);
+}
+
 .imageContainer {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 60;
     /* Image acts as the middle layer */
-    height: 85vh;
+    height: 90vh;
     /* Taller image */
     display: flex;
     align-items: flex-end;
+    /* Align image to bottom */
     pointer-events: none;
+    width: 100%;
+    justify-content: center;
 }
 
 .imageWrapper {
     position: relative;
     width: 90vw;
     height: 100%;
+    transform-origin: bottom center;
 }
 
 @media (min-width: 768px) {
     .imageWrapper {
-        width: 700px;
+        width: 1100px;
+        /* Increased from 700px to make image bigger */
     }
+}
+
+.imageWrapper {
+    will-change: transform;
 }
 
 .heroImage {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: bottom center;
+    /* Ensure base is at bottom */
     filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.3));
 }
 
+.smokeOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 68;
+    pointer-events: none;
+    /* Gradient from Red-ish (Left) to Orange (Right) */
+    background: linear-gradient(to right, #ff5e62 0%, #ff9966 100%);
+    /* Mask to handle the fade out from bottom to top */
+    -webkit-mask-image: linear-gradient(to top, black 25%, transparent 100%);
+    mask-image: linear-gradient(to top, black 25%, transparent 100%);
+}
+
 .contentOverlay {
-    position: relative;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
     z-index: 70;
-    /* Always on top */
-    text-align: center;
-    margin-top: -80px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    padding: 2.5rem;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: left;
+    margin-top: 0;
+    padding: 2rem;
     max-width: 800px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: auto;
 }
 
 .subHeadline {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Hiding the old headline to focus on the description style */
 }
 
 .description {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
     opacity: 0.95;
     margin-bottom: 2rem;
     line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    padding-left: 1rem;
+    max-width: 400px;
 }
 
 .techBar {
     display: flex;
     gap: 1.5rem;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 2rem;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 /* Floating Blobs for Background Interest */
@@ -210,4 +249,9 @@
     font-weight: 700;
     letter-spacing: 1.5px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.spaceChar {
+    margin: 0 3rem;
+    /* Large space between LENIN and MARIYA */
 }

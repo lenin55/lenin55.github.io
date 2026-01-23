@@ -1,11 +1,17 @@
 import type { Metadata } from 'next';
-import { Outfit, Inter } from 'next/font/google';
+import { Outfit, Inter, Josefin_Sans } from 'next/font/google';
 import './globals.css';
 
 const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-outfit',
   weight: ['400', '700', '900'],
+});
+
+const josefin = Josefin_Sans({
+  subsets: ['latin'],
+  variable: '--font-josefin',
+  weight: ['400', '600', '700'],
 });
 
 const inter = Inter({
@@ -26,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${inter.variable} min-h-screen antialiased`}>
+      <body className={`${outfit.variable} ${inter.variable} ${josefin.variable} min-h-screen antialiased`}>
         {children}
       </body>
     </html>

@@ -1,0 +1,225 @@
+.experienceSection {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    /* Occupy full screen */
+    overflow: hidden;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.intro {
+    flex: 0 0 30vw;
+    /* 30% width for introduction */
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    color: white;
+    position: relative;
+    /* Solid background to hide cards behind */
+    background: linear-gradient(120deg, #ff8c42 0%, #ff5e62 50%, #ff9966 100%);
+}
+
+/* Solid overlay before the intro to block scrolling cards */
+.intro::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100vw;
+    width: calc(100% + 100vw);
+    height: 200%;
+    background: linear-gradient(120deg, #ff8c42 0%, #ff5e62 50%, #ff9966 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Fade gradient on the right edge for smooth transition */
+.intro::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 200px;
+    height: 100%;
+    /* Gradient matching the page background - solid to transparent */
+    background: linear-gradient(to right,
+            #ff7a50 0%,
+            rgba(255, 122, 80, 0.8) 40%,
+            rgba(255, 122, 80, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.title {
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 400px;
+}
+
+/* The horizontal track that moves */
+.horizontalContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+    align-items: center;
+    padding-left: 5vw;
+    /* Start a bit off */
+    gap: 4rem;
+    will-change: transform;
+}
+
+.cardContainer {
+    position: relative;
+    flex: 0 0 500px;
+    /* Fixed width cards */
+    height: 60vh;
+    perspective: 1000px;
+}
+
+/* The vertical line connecting cards visually (optional for horizontal, but let's keep a "connector") */
+.connectorLine {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transform: translateY(-50%);
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.yearTag {
+    background: white;
+    color: black;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    align-self: flex-start;
+    font-family: var(--font-outfit), sans-serif;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.role {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    font-family: var(--font-outfit), sans-serif;
+}
+
+.company {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.location {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.descList {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    /* Scrollable if too long */
+    flex-grow: 1;
+}
+
+.descList li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.descList li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: #ff9966;
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+    .experienceSection {
+        height: auto;
+        overflow: visible;
+        flex-direction: column;
+        padding: 4rem 1rem;
+    }
+
+    .intro {
+        width: 100%;
+        text-align: center;
+        padding: 0 0 3rem 0;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .horizontalContainer {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        transform: none !important;
+        padding-left: 0;
+        gap: 3rem;
+    }
+
+    .cardContainer {
+        width: 100%;
+        flex: none;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .connectorLine {
+        display: none;
+    }
+}

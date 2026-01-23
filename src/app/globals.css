@@ -41,7 +41,7 @@ a {
 
 /* Utilities for typography */
 .font-heading {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-josefin), 'Outfit', sans-serif;
   text-transform: uppercase;
   font-weight: 800;
 }
