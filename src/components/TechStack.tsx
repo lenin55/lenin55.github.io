@@ -1,7 +1,8 @@
 "use client";
 import styles from './TechStack.module.css';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,40 +22,47 @@ export default function TechStack() {
     const sectionRef = useRef<HTMLElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            // Floating animation for all tags with random delays
-            const tags = gsap.utils.toArray<HTMLElement>(`.${styles.skillTag}`);
-            tags.forEach((tag) => {
-                gsap.to(tag, {
-                    y: "random(-20, 20)",
-                    x: "random(-10, 10)",
-                    rotation: "random(-5, 5)",
-                    duration: "random(2, 4)",
-                    repeat: -1,
-                    yoyo: true,
-                    ease: "sine.inOut",
-                    delay: "random(0, 4)"
+    useGSAP(() => {
+        // Target the WRAPPER for position animations
+        const wrappers = gsap.utils.toArray<HTMLElement>(`.${styles.skillWrapper}`);
+
+        // Initial state
+        gsap.set(wrappers, { opacity: 0, scale: 0, y: 50 });
+
+        // Master Timeline
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 80%",
+            }
+        });
+
+        // 1. Entrance Animation
+        tl.to(wrappers, {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.05,
+            ease: "back.out(1.2)"
+        })
+            // 2. Start Floating
+            .add(() => {
+                wrappers.forEach((wrapper) => {
+                    gsap.to(wrapper, {
+                        y: "random(-10, 10)",
+                        x: "random(-5, 5)",
+                        rotation: "random(-3, 3)",
+                        duration: "random(2, 4)",
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: "random(0, 2)"
+                    });
                 });
             });
 
-            // Entrance animation
-            gsap.from(tags, {
-                opacity: 0,
-                scale: 0,
-                y: 100,
-                duration: 1,
-                stagger: 0.05,
-                ease: "back.out(1.7)",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 80%",
-                }
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
+    }, { scope: sectionRef });
 
     return (
         <section id="skills" ref={sectionRef} className={styles.section}>
@@ -69,9 +77,11 @@ export default function TechStack() {
                         <div key={i} className={styles.orbitGroup}>
                             {/* Optional: Add a subtle orbit line or label if needed, keeping it clean for now */}
                             {group.skills.map((skill, j) => (
-                                <span key={j} className={`${styles.skillTag} ${styles[group.category.toLowerCase()] || ''}`}>
-                                    {skill}
-                                </span>
+                                <div key={j} className={styles.skillWrapper}>
+                                    <span className={`${styles.skillTag} ${styles[group.category.toLowerCase()] || ''}`}>
+                                        {skill}
+                                    </span>
+                                </div>
                             ))}
                         </div>
                     ))}

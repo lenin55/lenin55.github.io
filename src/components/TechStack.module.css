@@ -48,8 +48,15 @@
 }
 
 /* Base Tag Style */
-.skillTag {
+/* Wrapper takes the GSAP animation (position/rotation) */
+.skillWrapper {
     display: inline-block;
+    will-change: transform;
+}
+
+/* Base Tag Style - Takes the visual styling and hover scale */
+.skillTag {
+    display: block;
     padding: 0.8rem 1.8rem;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.03);
@@ -59,7 +66,8 @@
     font-size: 1rem;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Transition specific props to avoid Conflict with transforms if any */
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
     cursor: default;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     font-family: var(--font-outfit), sans-serif;
@@ -67,7 +75,7 @@
 }
 
 .skillTag:hover {
-    transform: scale(1.1) !important;
+    transform: scale(1.1);
     background: white;
     color: black;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);

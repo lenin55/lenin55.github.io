@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EXPERIENCE_DATA } from '@/data/experience';
 import styles from './styles.module.css';
-import { useGSAP } from '@gsap/react'; // Ensure this is available, if not fallback to useEffect
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,7 @@ export default function Experience() {
     const sectionRef = useRef<HTMLElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+    useGSAP(() => {
         // Only apply horizontal scroll on Desktop
         const mm = gsap.matchMedia();
 
@@ -23,7 +23,6 @@ export default function Experience() {
 
             if (section && container) {
                 // Calculate total width to scroll
-                // (total width of items - width of viewport) basically
                 const totalWidth = container.scrollWidth;
                 const viewportWidth = window.innerWidth;
 
@@ -44,8 +43,7 @@ export default function Experience() {
             }
         });
 
-        return () => mm.revert();
-    }, []);
+    }, { scope: sectionRef });
 
     return (
         <section className={styles.experienceSection} ref={sectionRef} id="experience">
@@ -59,9 +57,10 @@ export default function Experience() {
             <div className={styles.horizontalContainer} ref={containerRef}>
                 {/* Visual Connector Line */}
                 <div className={styles.connectorLine} />
-
                 {EXPERIENCE_DATA.map((item, index) => (
                     <div key={item.id} className={styles.cardContainer}>
+
+
                         <div className={styles.card}>
                             <div>
                                 <span className={styles.yearTag}>{item.period}</span>
