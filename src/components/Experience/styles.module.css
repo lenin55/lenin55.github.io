@@ -84,6 +84,8 @@
     align-items: center;
     padding-left: 5vw;
     /* Start a bit off */
+    padding-right: 30vw;
+    /* Extra space so last card is fully visible */
     gap: 4rem;
     will-change: transform;
 }
@@ -217,6 +219,7 @@
         width: 100%;
         transform: none !important;
         padding-left: 0;
+        padding-right: 0;
         gap: 3rem;
         position: relative;
     }
@@ -230,5 +233,13 @@
 
     .connectorLine {
         display: none;
+    }
+
+    .intro::before {
+        display: none;
+    }
+
+    .subtitle {
+        margin: 0 auto;
     }
 }

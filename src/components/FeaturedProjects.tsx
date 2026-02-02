@@ -3,7 +3,9 @@ import styles from './FeaturedProjects.module.css';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
+import { PROJECTS_DATA } from '@/data/projects';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +21,7 @@ export default function FeaturedProjects() {
                 opacity: 1,
                 rotateX: 0,
                 duration: 1,
-                stagger: 0.2,
+                stagger: 0.15,
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: sectionRef.current,
@@ -41,62 +43,50 @@ export default function FeaturedProjects() {
                 <h2 className={`${styles.heading} font-heading`}>SELECTED WORK</h2>
 
                 <div className={styles.grid}>
-                    {/* Project 1 */}
-                    <div ref={addToRefs} className={styles.card}>
-                        <div className={styles.imageContainer}>
-                            {/* Placeholder for Image */}
-                            <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center text-white/20 font-heading text-2xl">
-                                KURUIER PREVIEW
-                            </div>
+                    {PROJECTS_DATA.map((project) => (
+                        <div key={project.id} ref={addToRefs} className={styles.card}>
+                            <a
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.cardLink}
+                            >
+                                <div className={styles.imageContainer}>
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className={styles.image}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
+                                    <div className={styles.imageOverlay}>
+                                        <ExternalLink size={32} />
+                                        <span>View Project</span>
+                                    </div>
+                                </div>
+                                <div className={styles.content}>
+                                    <h3 className={`${styles.title} font-heading`}>
+                                        {project.title}
+                                        <ArrowUpRight size={18} className={styles.arrow} />
+                                    </h3>
+                                    <p className={`${styles.subtext} font-body`}>{project.description}</p>
+                                    <div className={styles.tags}>
+                                        {project.tags.map((tag, i) => (
+                                            <span key={i} className={styles.tag}>{tag}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div className={styles.content}>
-                            <h3 className={`${styles.title} font-heading`}>KURUIER</h3>
-                            <p className={`${styles.subtext} font-body`}>Peer-to-Peer Logistics Platform.</p>
-                            <div className={styles.tags}>
-                                <span className={styles.tag}>React Native</span>
-                                <span className={styles.tag}>Node.js</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Project 2 */}
-                    <div ref={addToRefs} className={styles.card}>
-                        <div className={styles.imageContainer}>
-                            {/* Placeholder for Image */}
-                            <div className="w-full h-full bg-gradient-to-br from-blue-900 to-slate-900 flex items-center justify-center text-white/20 font-heading text-2xl">
-                                ZOHO FLOW PREVIEW
-                            </div>
-                        </div>
-                        <div className={styles.content}>
-                            <h3 className={`${styles.title} font-heading`}>ZOHO FLOW</h3>
-                            <p className={`${styles.subtext} font-body`}>No-code Integration SaaS.</p>
-                            <div className={styles.tags}>
-                                <span className={styles.tag}>Core Front-End</span>
-                                <span className={styles.tag}>SaaS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Project 3 */}
-                    <div ref={addToRefs} className={styles.card}>
-                        <div className={styles.imageContainer}>
-                            {/* Placeholder for Image */}
-                            <div className="w-full h-full bg-gradient-to-br from-purple-900 to-indigo-900 flex items-center justify-center text-white/20 font-heading text-2xl">
-                                COMMERCE PREVIEW
-                            </div>
-                        </div>
-                        <div className={styles.content}>
-                            <h3 className={`${styles.title} font-heading`}>MULTI-TENANT E-COMMERCE</h3>
-                            <p className={`${styles.subtext} font-body`}>White-label SaaS Solution.</p>
-                            <div className={styles.tags}>
-                                <span className={styles.tag}>Medusa.js</span>
-                                <span className={styles.tag}>Next.js</span>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
 
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={`${styles.link} font-body`}>
+                <a
+                    href="https://github.com/lenin55"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.link} font-body`}
+                >
                     See more on GitHub <ArrowUpRight size={14} className="inline mb-1" />
                 </a>
             </div>

@@ -255,3 +255,63 @@
     margin: 0 3rem;
     /* Large space between LENIN and MARIYA */
 }
+
+@media (max-width: 768px) {
+    .char {
+        font-size: clamp(3rem, 12vw, 5rem);
+        line-height: 0.9;
+        letter-spacing: -0.01em;
+    }
+
+    .spaceChar {
+        margin: 0 1rem;
+    }
+
+    .titleContainer {
+        top: 30%;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .imageContainer {
+        height: 70vh;
+    }
+
+    .contentOverlay {
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+        padding: 1.5rem;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description {
+        border-left: none;
+        padding-left: 0;
+        margin-bottom: 1.5rem;
+        font-size: 0.85rem;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .techBar {
+        justify-content: center;
+        gap: 0.5rem 1rem;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    .techItem {
+        font-size: 0.8rem;
+    }
+
+    .ctaButton {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}

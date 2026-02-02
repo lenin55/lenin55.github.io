@@ -1,11 +1,44 @@
 "use client";
 import styles from './Services.module.css';
-import { Settings, Bot, Gauge } from 'lucide-react';
+import { Code2, Smartphone, Layers, Wrench, Bot, Palette } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const SERVICES = [
+    {
+        icon: Code2,
+        title: "WEB DEVELOPMENT",
+        description: "Custom websites & web apps from scratch. React, Next.js, Vue, or vanilla JS – pixel-perfect, responsive, blazing fast."
+    },
+    {
+        icon: Smartphone,
+        title: "MOBILE APPS",
+        description: "Cross-platform mobile apps with React Native. iOS & Android from a single codebase with native performance."
+    },
+    {
+        icon: Layers,
+        title: "SAAS PRODUCTS",
+        description: "End-to-end SaaS development from MVP to scale. Authentication, billing, dashboards – the full stack."
+    },
+    {
+        icon: Wrench,
+        title: "CUSTOM DEVELOPMENT",
+        description: "Tailored solutions for unique business needs. WordPress, e-commerce, portals, internal tools."
+    },
+    {
+        icon: Bot,
+        title: "AI & LLM AUTOMATION",
+        description: "AI agents, LLM integrations, RAG pipelines, n8n/Zapier workflows. Make your operations smarter."
+    },
+    {
+        icon: Palette,
+        title: "UI/UX DESIGN",
+        description: "Modern interface design with Figma. Design systems, prototypes, and pixel-perfect developer handoff."
+    }
+];
 
 export default function Services() {
     const sectionRef = useRef(null);
@@ -18,7 +51,7 @@ export default function Services() {
                 y: 0,
                 opacity: 1,
                 duration: 0.8,
-                stagger: 0.2,
+                stagger: 0.15,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: sectionRef.current,
@@ -40,38 +73,20 @@ export default function Services() {
                 <h2 className={`${styles.heading} font-heading`}>WHAT I OFFER</h2>
 
                 <div className={styles.grid}>
-                    {/* Service 1 */}
-                    <div ref={addToRefs} className={styles.card}>
-                        <div className={styles.iconWrapper}>
-                            <Settings size={32} />
-                        </div>
-                        <h3 className={`${styles.cardTitle} font-heading`}>SAAS ENGINEERING</h3>
-                        <p className={`${styles.cardText} font-body`}>
-                            Full-cycle development of scalable web applications using MERN stack & Next.js.
-                        </p>
-                    </div>
-
-                    {/* Service 2 */}
-                    <div ref={addToRefs} className={styles.card}>
-                        <div className={styles.iconWrapper}>
-                            <Bot size={32} />
-                        </div>
-                        <h3 className={`${styles.cardTitle} font-heading`}>AI & AUTOMATION</h3>
-                        <p className={`${styles.cardText} font-body`}>
-                            Building custom AI agents, RAG pipelines, and n8n workflows for business ops.
-                        </p>
-                    </div>
-
-                    {/* Service 3 */}
-                    <div ref={addToRefs} className={styles.card}>
-                        <div className={styles.iconWrapper}>
-                            <Gauge size={32} />
-                        </div>
-                        <h3 className={`${styles.cardTitle} font-heading`}>PERFORMANCE OPTIMIZATION</h3>
-                        <p className={`${styles.cardText} font-body`}>
-                            Auditing and refactoring legacy React codebases for speed, SEO, and scale.
-                        </p>
-                    </div>
+                    {SERVICES.map((service, index) => {
+                        const IconComponent = service.icon;
+                        return (
+                            <div key={index} ref={addToRefs} className={styles.card}>
+                                <div className={styles.iconWrapper}>
+                                    <IconComponent size={32} />
+                                </div>
+                                <h3 className={`${styles.cardTitle} font-heading`}>{service.title}</h3>
+                                <p className={`${styles.cardText} font-body`}>
+                                    {service.description}
+                                </p>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

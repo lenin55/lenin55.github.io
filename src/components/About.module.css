@@ -1,45 +1,333 @@
 .section {
     padding: 6rem 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1300px;
     margin: 0 auto;
+}
+
+/* Section Header */
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.headerIcon {
+    color: white;
+}
+
+.headerTag {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
 }
 
 .heading {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 3rem;
     text-align: center;
     color: white;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.content {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
+/* Split Layout - 70:30 */
+.splitLayout {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    text-align: left;
+    gap: 3rem;
 }
 
-@media (min-width: 768px) {
-    .content {
-        font-size: 1.25rem;
-        text-align: center;
+@media (min-width: 1024px) {
+    .splitLayout {
+        flex-direction: row;
+        gap: 4rem;
+        align-items: flex-start;
     }
 }
 
+.leftColumn {
+    flex: 0 0 50%;
+}
+
+.rightColumn {
+    flex: 0 0 50%;
+}
+
+/* Terminal Styles - Glassmorphic */
+.terminal {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.terminalHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminalDots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot:nth-child(1) {
+    background: #ff5f56;
+    box-shadow: 0 0 8px #ff5f5660;
+}
+
+.dot:nth-child(2) {
+    background: #ffbd2e;
+    box-shadow: 0 0 8px #ffbd2e60;
+}
+
+.dot:nth-child(3) {
+    background: #27ca40;
+    box-shadow: 0 0 8px #27ca4060;
+}
+
+.terminalTitle {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.terminalBody {
+    padding: 1.5rem;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.codeLine {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.codeLine:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.indent {
+    padding-left: 2.5rem;
+}
+
+.lineNum {
+    color: rgba(255, 255, 255, 0.4);
+    min-width: 1.5rem;
+    font-size: 0.75rem;
+    user-select: none;
+    margin-right: 1rem;
+}
+
+/* Syntax colors adjusted for light/warm background */
+.keyword {
+    color: #7c3aed;
+    /* Purple */
+}
+
+.variable {
+    color: #1e40af;
+    /* Deep blue */
+}
+
+.prop {
+    color: #047857;
+    /* Teal green */
+}
+
+.string {
+    color: #0f766e;
+    /* Dark teal */
+}
+
+.number {
+    color: #b91c1c;
+    /* Dark red */
+}
+
 .highlight {
-    font-weight: 700;
     color: white;
-    text-decoration: underline;
-    text-decoration-color: #ff9966;
-    text-underline-offset: 4px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+}
+
+.comment {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    margin-left: 0.5rem;
+}
+
+/* Stats Row */
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .statsRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.statItem:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.statIcon {
+    color: white;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    font-family: var(--font-outfit), sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.statLabel {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Right Column - Text Content */
+.textContent {
+    position: sticky;
+    top: 120px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.subHeading {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.paragraph {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.25rem;
+}
+
+.paragraph strong {
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Skill Tags */
+.skillTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.skillTag {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.skillTag:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 1023px) {
+
+    .leftColumn,
+    .rightColumn {
+        flex: 1 1 100%;
+    }
+
+    .textContent {
+        position: static;
+    }
+
+    .terminalBody {
+        overflow-x: auto;
+    }
+
+    .codeLine {
+        font-size: 0.8rem;
+    }
 }
