@@ -114,23 +114,33 @@
 .card {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25);
+    /* Subtle Glass Base */
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
+
+    border-radius: 40px;
     padding: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.4s ease, border-color 0.4s ease;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+
+    /* Requested Glass Effect */
+    box-shadow:
+        inset 2px 2px 1px rgba(251, 251, 254, 0.3),
+        inset -2px -2px 1px rgba(251, 251, 254, 0.2),
+        0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow:
+        inset 3px 3px 2px rgba(251, 251, 254, 0.4),
+        inset -3px -3px 2px rgba(251, 251, 254, 0.3),
+        0 40px 80px rgba(0, 0, 0, 0.3);
 }
 
 .yearTag {
