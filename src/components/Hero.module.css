@@ -258,27 +258,34 @@
 
 @media (max-width: 768px) {
     .char {
-        font-size: clamp(3rem, 12vw, 5rem);
-        line-height: 0.9;
+        font-size: clamp(2.8rem, 11vw, 4.5rem);
+        line-height: 0.95;
         letter-spacing: -0.01em;
     }
 
     .spaceChar {
-        margin: 0 1rem;
+        margin: 0 0.8rem;
     }
 
     .titleContainer {
-        top: 30%;
+        top: 15%;
+        /* Name text alone at the very top */
+        transform: translate(-50%, 0);
         width: 100%;
         padding: 0 1rem;
     }
 
     .imageContainer {
-        height: 70vh;
+        height: 65vh;
+        /* Centered layout between top name and bottom content */
+        z-index: 30;
+        /* Behind the content but potentially overlapping name */
     }
 
     .contentOverlay {
-        bottom: 8%;
+        bottom: 5%;
+        /* Content restored to the bottom */
+        top: auto;
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
@@ -307,11 +314,16 @@
     }
 
     .techItem {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .ctaButton {
         padding: 0.8rem 2rem;
         font-size: 1rem;
+    }
+
+    .smokeOverlay {
+        height: 35%;
+        /* Adjusted for bottom content anchoring */
     }
 }
