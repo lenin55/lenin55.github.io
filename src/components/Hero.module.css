@@ -108,6 +108,30 @@
     }
 }
 
+@media (min-width: 1400px) {
+    .imageWrapper {
+        width: 1300px;
+        /* Further increased for 1512px screens */
+    }
+
+    .char {
+        font-size: 11rem;
+        /* Reduced from default clamping which might be too large */
+    }
+
+    .imageContainer {
+        height: 85vh;
+        /* Reduced height to prevent head cropping */
+        bottom: 0;
+    }
+
+    .titleContainer {
+        top: 45%;
+        /* Center the text vertically */
+    }
+}
+
+
 .imageWrapper {
     will-change: transform;
 }
