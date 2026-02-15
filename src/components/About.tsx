@@ -140,41 +140,41 @@ export default function About() {
                                 <div ref={(el) => addToLinesRef(el, 1)} className={`${styles.codeLine} ${styles.indent}`}>
                                     <span className={styles.lineNum}>2</span>
                                     <span className={styles.prop}>name</span>:
-                                    <span className={styles.string}> "Lenin Mariya Joseph"</span>,
+                                    <span className={styles.string}> &quot;Lenin Mariya Joseph&quot;</span>,
                                 </div>
                                 <div ref={(el) => addToLinesRef(el, 2)} className={`${styles.codeLine} ${styles.indent}`}>
                                     <span className={styles.lineNum}>3</span>
                                     <span className={styles.prop}>role</span>:
-                                    <span className={styles.string}> "Senior Frontend Engineer"</span>,
+                                    <span className={styles.string}> &quot;Senior Web Developer&quot;</span>,
                                 </div>
                                 <div ref={(el) => addToLinesRef(el, 3)} className={`${styles.codeLine} ${styles.indent}`}>
                                     <span className={styles.lineNum}>4</span>
                                     <span className={styles.prop}>location</span>:
-                                    <span className={styles.string}> "Dubai, UAE"</span>,
+                                    <span className={styles.string}> &quot;Dubai, UAE&quot;</span>,
                                 </div>
                                 <div ref={(el) => addToLinesRef(el, 4)} className={`${styles.codeLine} ${styles.indent}`}>
                                     <span className={styles.lineNum}>5</span>
                                     <span className={styles.prop}>experience</span>:
                                     <span className={styles.number}> 10</span>,
-                                    <span className={styles.comment}> // years</span>
+                                    <span className={styles.comment}> {/* // years */}</span>
                                 </div>
                                 <div ref={(el) => addToLinesRef(el, 5)} className={`${styles.codeLine} ${styles.indent}`}>
                                     <span className={styles.lineNum}>6</span>
                                     <span className={styles.prop}>company</span>:
-                                    <span className={styles.highlight}> "Zoho Corp"</span>,
-                                    <span className={styles.comment}> // 100M+ users</span>
+                                    <span className={styles.highlight}> &quot;Zoho Corp&quot;</span>,
+                                    <span className={styles.comment}> {/* // 100M+ users */}</span>
                                 </div>
                                 <div ref={(el) => addToLinesRef(el, 6)} className={`${styles.codeLine} ${styles.indent}`}>
                                     <span className={styles.lineNum}>7</span>
                                     <span className={styles.prop}>stack</span>: [
-                                    <span className={styles.string}>"React"</span>,
-                                    <span className={styles.string}>"Next.js"</span>,
-                                    <span className={styles.string}>"TS"</span>],
+                                    <span className={styles.string}>&quot;React&quot;</span>,
+                                    <span className={styles.string}>&quot;Next.js&quot;</span>,
+                                    <span className={styles.string}>&quot;TS&quot;</span>],
                                 </div>
                                 <div ref={(el) => addToLinesRef(el, 7)} className={`${styles.codeLine} ${styles.indent}`}>
                                     <span className={styles.lineNum}>8</span>
                                     <span className={styles.prop}>superpower</span>:
-                                    <span className={styles.string}> "Vanilla JS from scratch"</span>
+                                    <span className={styles.string}> &quot;Vanilla JS from scratch&quot;</span>
                                 </div>
                                 <div ref={(el) => addToLinesRef(el, 8)} className={styles.codeLine}>
                                     <span className={styles.lineNum}>9</span>
@@ -213,18 +213,18 @@ export default function About() {
                             </h3>
 
                             <p className={`${styles.paragraph} font-body`}>
-                                I'm a <strong>Senior Frontend Developer</strong> with over a decade
+                                I&apos;m a <strong>Senior Web Developer</strong> with over a decade
                                 of experience crafting digital products that are as beautiful as they are functional.
                             </p>
 
                             <p className={`${styles.paragraph} font-body`}>
-                                For <strong>5 years at Zoho Corp</strong>, one of the world's largest
+                                For <strong>5 years at Zoho Corp</strong>, one of the world&apos;s largest
                                 SaaS companies, I led the frontend development of <strong>Zoho Flow</strong> –
                                 building the entire UI from scratch with pure vanilla JavaScript.
                             </p>
 
                             <p className={`${styles.paragraph} font-body`}>
-                                My specialty? <strong>No frameworks, just clean code.</strong> Whether it's
+                                My specialty? <strong>No frameworks, just clean code.</strong> Whether it&apos;s
                                 React, Next.js, or custom component systems – I bring enterprise-grade
                                 thinking to every project.
                             </p>

@@ -21,26 +21,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Lenin Mariya Joseph | Senior Web Developer & AI Architect',
-  description: '10+ Years of Experience. Ex-Zoho. Architecting the future of Web & AI. Check out my portfolio.',
+  title: 'Lenin Mariya Joseph | Senior Web Developer & Ex-Zoho',
+  description: 'Senior Web Developer with 10+ years experience, including 5 years at Zoho. Architecting high-performance Web & AI solutions.',
   openGraph: {
     type: 'website',
     url: 'https://lenin55.github.io/',
-    title: 'Lenin Mariya Joseph | Senior Web Developer & AI Architect',
-    description: '10+ Years of Experience. Ex-Zoho. Architecting the future of Web & AI. Check out my portfolio.',
+    title: 'Lenin Mariya Joseph | Senior Web Developer & Ex-Zoho',
+    description: 'Senior Web Developer with 10+ years experience, including 5 years at Zoho. Architecting high-performance Web & AI solutions.',
     images: [
       {
         url: 'https://lenin55.github.io/preview-image.png',
         width: 1200,
         height: 630,
-        alt: 'Lenin Mariya Joseph - Senior Web Developer & AI Architect',
+        alt: 'Lenin Mariya Joseph - Senior Web Developer & Ex-Zoho',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lenin Mariya Joseph | Senior Web Developer & AI Architect',
-    description: '10+ Years of Experience. Ex-Zoho. Architecting the future of Web & AI. Check out my portfolio.',
+    title: 'Lenin Mariya Joseph | Senior Web Developer & Ex-Zoho',
+    description: 'Senior Web Developer with 10+ years experience, including 5 years at Zoho. Architecting high-performance Web & AI solutions.',
     images: ['https://lenin55.github.io/preview-image.png'],
   },
 };

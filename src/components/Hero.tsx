@@ -202,7 +202,8 @@ export default function Hero() {
 
             <div ref={contentRef} className={styles.contentOverlay}>
                 <div className={`${styles.description} font-body`}>
-                    // SENIOR FRONTEND ENGINEER<br />
+                    {/* // SENIOR WEB DEVELOPER • EX-ZOHO */}
+                    {`// SENIOR WEB DEVELOPER • EX-ZOHO`}<br />
                     REACT • NEXT.JS • REACT NATIVE • AI AUTOMATION
                 </div>
 

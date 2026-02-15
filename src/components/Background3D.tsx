@@ -11,9 +11,11 @@ function ParticleField() {
     const sphere = useMemo(() => {
         const temp = new Float32Array(5000 * 3);
         for (let i = 0; i < 5000; i++) {
+            /* eslint-disable react-hooks/purity */
             const theta = 2 * Math.PI * Math.random();
             const phi = Math.acos(2 * Math.random() - 1);
             const r = 1.5 * Math.cbrt(Math.random());
+            /* eslint-enable react-hooks/purity */
 
             const x = r * Math.sin(phi) * Math.cos(theta);
             const y = r * Math.sin(phi) * Math.sin(theta);

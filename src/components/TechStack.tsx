@@ -69,7 +69,7 @@ export default function TechStack() {
             <div className={styles.container} ref={containerRef}>
                 <h2 className={`${styles.heading} font-heading`}>THE SKILL GALAXY</h2>
                 <p className={`${styles.subheading} font-body`}>
-                    A vast universe of tools and technologies I've mastered over a decade.
+                    A vast universe of tools and technologies I&apos;ve mastered over a decade.
                 </p>
 
                 <div className={styles.galaxyWrapper}>

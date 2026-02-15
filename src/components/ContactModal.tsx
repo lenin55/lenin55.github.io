@@ -79,13 +79,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     <div className={styles.successState}>
                         <div className={styles.successIcon}>✓</div>
                         <h2 className="font-heading">MESSAGE SENT!</h2>
-                        <p className="font-body">I'll get back to you shortly.</p>
+                        <p className="font-body">I&apos;ll get back to you shortly.</p>
                     </div>
                 ) : (
                     <>
                         <div className={styles.header}>
-                            <h2 className={`${styles.title} font-heading`}>LET'S BUILD SOMETHING</h2>
-                            <p className={`${styles.subtitle} font-body`}>Drop me a message and I'll get back to you within 24 hours.</p>
+                            <h2 className={`${styles.title} font-heading`}>LET&apos;S BUILD SOMETHING</h2>
+                            <p className={`${styles.subtitle} font-body`}>Drop me a message and I&apos;ll get back to you within 24 hours.</p>
                         </div>
 
                         <form className={styles.form} onSubmit={handleSubmit}>
